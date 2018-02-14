@@ -15,7 +15,6 @@ def readAllBytes():
     (c, b) = pi.i2c_read_device(h, 9)
     
     pi.i2c_close(h)
-    # print(b)
     return b
 
 def getValues(b):
@@ -29,8 +28,8 @@ def getValues(b):
 if __name__ == "__main__":
     rawdata = readAllBytes();
     for i in range(0, 9):
-        print(rawdata[i])
-    
+        print(rawdata[i]," ", end = '')
+    print("\n---------------------------------------") 
     params = getValues(rawdata)
     print("predict = ", params["predict"])
     print("status = ", params["status"])
